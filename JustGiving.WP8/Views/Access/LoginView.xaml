@@ -11,10 +11,12 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,14 +24,41 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="JustGiving" FontSize="28" Foreground="#78256d" />
+            <TextBlock Text="Login" Margin="9,-7,0,0" Foreground="#78256d" FontSize="56"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            
+            <StackPanel>
+                <Grid>
+                    <TextBlock Text="E-mail address" Foreground="#262626" VerticalAlignment="Center" />
+                    <TextBox Width="300" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                </Grid>
+                <Grid>
+                    <TextBlock Text="Password" Foreground="#262626" VerticalAlignment="Center" />
+                    <TextBox Width="300" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                </Grid>
+                <Grid>
+                    <TextBlock Text="Remeber ?" Foreground="#262626" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 64 0"/>
+                    <CheckBox BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                </Grid>
+                <Grid>
+                    <Button x:Name="TryLogin" Content="Login" Width="150" Height="80" Background="#1d67be" />
+                </Grid>
+            </StackPanel>
         </Grid>
-    </Grid>
-
+        <appbar:BindableAppBar>
+            <appbar:BindableAppBarButton x:Name="NavigateToFacebookLogin" IconUri="/Assets/AppBar/new.png" Text="Facebook" />
+            <appbar:BindableAppBarButton x:Name="NavigateToRegistration" IconUri="/Assets/AppBar/new.png" Text="Register" />
+            <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
+        </appbar:BindableAppBar>
+    </Grid>    
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton x:Name="NavigateToFacebookLogin" IconUri="/Assets/AppBar/new.png" Text="Facebook" />
+            <shell:ApplicationBarIconButton x:Name="NavigateToRegistration" IconUri="/Assets/AppBar/new.png" Text="Register" />
+            <shell:ApplicationBarIconButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 </phone:PhoneApplicationPage>

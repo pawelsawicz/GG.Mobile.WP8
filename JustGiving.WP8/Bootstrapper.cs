@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using JustGiving.WP8.ViewModels;
 using JustGiving.WP8.ViewModels.Access;
+using System.Windows.Controls;
+using Caliburn.Micro.BindableAppBar;
 namespace JustGiving.WP8
 {
     public class Bootstrapper : PhoneBootstrapper
@@ -18,7 +20,9 @@ namespace JustGiving.WP8
             _phoneContainer.RegisterPhoneServices(RootFrame);
             _phoneContainer.PerRequest<MainPageViewModel>();
             _phoneContainer.PerRequest<LoginViewModel>();
-            
+            _phoneContainer.PerRequest<RegistrationViewModel>();
+            ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
+            ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");
         }
 
         protected override object GetInstance(Type service, string key)
