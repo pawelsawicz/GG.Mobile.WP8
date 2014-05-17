@@ -28,7 +28,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button x:Name="ToLogin" Width="350" Height="50" />
+            <Button x:Name="ToFundraising" Width="350" Height="50" />
         </Grid>
     </Grid>
 

@@ -13,7 +13,8 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
     xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
-    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
@@ -49,9 +50,11 @@
             </phone:PanoramaItem>
             <phone:PanoramaItem Header="Address">
                 <StackPanel>
-                    <Grid>
+                    <Grid>   
+                        
                         <TextBlock Text="Country" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <!--<TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />-->
+                        <toolkit:ListPicker Width="250" Height="60" Background="#1d67be" ExpansionMode="FullScreenOnly" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Country / State" Foreground="#262626" VerticalAlignment="Center" />
