@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JustGiving.WP8.ViewModels;
+using JustGiving.WP8.ViewModels.Access;
 namespace JustGiving.WP8
 {
     public class Bootstrapper : PhoneBootstrapper
@@ -16,6 +17,7 @@ namespace JustGiving.WP8
             _phoneContainer = new PhoneContainer();
             _phoneContainer.RegisterPhoneServices(RootFrame);
             _phoneContainer.PerRequest<MainPageViewModel>();
+            _phoneContainer.PerRequest<LoginViewModel>();
             
         }
 
