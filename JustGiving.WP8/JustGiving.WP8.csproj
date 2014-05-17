@@ -154,6 +154,8 @@
     </Content>
     <Content Include="medium_icon_202.png" />
     <Content Include="small_icon_110.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="SplashScreenImage.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
