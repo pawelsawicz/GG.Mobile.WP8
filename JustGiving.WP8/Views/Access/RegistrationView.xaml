@@ -11,25 +11,89 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <phone:Panorama Title="Registration" Foreground="#78256d" >
+            
+            <phone:PanoramaItem Header="Personal">
+                <StackPanel>
+                    <Grid>
+                        <TextBlock Text="Title" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Email" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="First name" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Last name" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Password" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Retype password" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                </StackPanel>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem Header="Address">
+                <StackPanel>
+                    <Grid>
+                        <TextBlock Text="Country" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Country / State" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Address line 1" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="address line 2" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Postcode / Zipcode" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Town / City" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                </StackPanel>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem Header="Submit">
+                <StackPanel>
+                    <Grid>
+                        <TextBlock Text="Terms and Conditions" Foreground="#262626" VerticalAlignment="Center" />
+                        <CheckBox BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <Button x:Name="TryLogin" Content="Sign up" Width="250" Height="80" Background="#1d67be" />
+                    </Grid>
+                </StackPanel>
+            </phone:PanoramaItem>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
-        </Grid>
+        </phone:Panorama>          
+        <appbar:BindableAppBar>
+            <appbar:BindableAppBarButton x:Name="NavigateToFacebookLogin" IconUri="/Assets/AppBar/new.png" Text="Facebook" />
+            <appbar:BindableAppBarButton x:Name="NavigateToLogin" IconUri="/Assets/AppBar/new.png" Text="Login" />
+            <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
+            <appbar:BindableAppBarButton x:Name="NavigateToTermsAndConditions" IconUri="/Assets/AppBar/questionmark.png" Text="TC" />
+        </appbar:BindableAppBar>
     </Grid>
 
 </phone:PhoneApplicationPage>

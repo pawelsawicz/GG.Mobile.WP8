@@ -14,5 +14,25 @@ namespace JustGiving.WP8.ViewModels.Access
         {
             _navigationService = navigationService;
         }
+
+        public void NavigateToHelp()
+        {
+
+        }
+
+        public void NavigateToLogin()
+        {
+            _navigationService.UriFor<LoginViewModel>().Navigate();
+        }
+
+        public void NavigateToFacebookLogin()
+        {
+
+        }
+
+        public void NavigateToTermsAndConditions()
+        {
+
+        }
     }
 }
