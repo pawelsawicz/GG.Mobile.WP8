@@ -13,11 +13,11 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
 
-    <!--LayoutRoot contains the root grid where all other page content is placed-->
+   
     <Grid x:Name="LayoutRoot" Background="White">
         <phone:Panorama Title="Stephen's fundraising page" Foreground="#78256d">
 
-            <!--Panorama item one-->
+          
             <phone:PanoramaItem Header="Summary">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -71,9 +71,53 @@
                 </Grid>
             </phone:PanoramaItem>
 
-            <!--Panorama item two-->
-            <phone:PanoramaItem Header="item2">
-                <Grid/>
+           
+            <phone:PanoramaItem Header="Story and Team">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.6*" />
+                        <RowDefinition Height="0.4*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.1*" />
+                            <RowDefinition Height="0.9*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Story" />
+                        <TextBlock Grid.Row="1" Text="Hi! My name's Stephen and I'm pretty much like your average teenager- except for the last three years now I've been battling cancer. The current opinion voiced by my doctors is that my disease is incurable, and as a result I want to spend as much time as possible raising funds for a charity very close to my heart." TextWrapping="Wrap" Foreground="#262626" FontSize="18" />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="0.8*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.7*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                            <TextBlock Text="Team" />
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Image Source="/Assets/Fakes/team_avatar.jpg" />
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <TextBlock Text="Stephen's Fundraising Team" Foreground="#262626" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Donations">
+                <Grid>
+
+                </Grid>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Gallery">
+                <Grid>
+
+                </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>

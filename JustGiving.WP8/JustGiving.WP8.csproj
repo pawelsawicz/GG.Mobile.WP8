@@ -145,6 +145,7 @@
     <Content Include="Assets\Brand\small_icon_110.png" />
     <Content Include="Assets\Fakes\charity_logo.jpg" />
     <Content Include="Assets\Fakes\f_avatar.jpg" />
+    <Content Include="Assets\Fakes\team_avatar.jpg" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
