@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using JustGiving.WP8.ViewModels;
 using JustGiving.WP8.ViewModels.Access;
 using JustGiving.WP8.ViewModels.Fundraising;
+using JustGiving.WP8.ViewModels.Team;
 using System.Windows.Controls;
 using Caliburn.Micro.BindableAppBar;
 namespace JustGiving.WP8
@@ -23,6 +24,7 @@ namespace JustGiving.WP8
             _phoneContainer.PerRequest<LoginViewModel>();
             _phoneContainer.PerRequest<RegistrationViewModel>();
             _phoneContainer.PerRequest<FundraisingViewModel>();
+            _phoneContainer.PerRequest<TeamViewModel>();
 
             ConventionManager.AddElementConvention<BindableAppBarMenuItem>(Control.IsEnabledProperty, "DataContext", "Click");
             ConventionManager.AddElementConvention<BindableAppBarButton>(Control.IsEnabledProperty, "DataContext", "Click");

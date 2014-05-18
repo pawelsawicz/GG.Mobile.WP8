@@ -11,7 +11,8 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="False"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
 
 
     <Grid x:Name="LayoutRoot" Background="White">
@@ -86,7 +87,7 @@
                         <TextBlock Grid.Row="0" Text="Story" />
                         <TextBlock Grid.Row="1" Text="Hi! My name's Stephen and I'm pretty much like your average teenager- except for the last three years now I've been battling cancer. The current opinion voiced by my doctors is that my disease is incurable, and as a result I want to spend as much time as possible raising funds for a charity very close to my heart." TextWrapping="Wrap" Foreground="#262626" FontSize="18" />
                     </Grid>
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" cal:Message.Attach="[Event Tap] = [Action NavigateToTeam]">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.2*" />
                             <RowDefinition Height="0.8*" />
