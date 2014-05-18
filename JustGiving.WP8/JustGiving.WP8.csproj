@@ -150,6 +150,8 @@
     <Content Include="Assets\Fakes\charity_logo.jpg" />
     <Resource Include="Assets\Fakes\facebook-avatar.gif" />
     <Content Include="Assets\Fakes\charity_logo_2.jpg" />
+    <Content Include="Assets\Fakes\charity_logo_3.jpg" />
+    <Content Include="Assets\Fakes\event_1.jpg" />
     <Content Include="Assets\Fakes\f_avatar.jpg" />
     <Content Include="Assets\Fakes\s_gallery.jpg" />
     <Content Include="Assets\Fakes\team_avatar.jpg" />

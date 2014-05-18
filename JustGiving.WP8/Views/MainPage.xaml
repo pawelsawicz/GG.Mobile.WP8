@@ -11,29 +11,81 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <!--Pivot Control-->
         <phone:Pivot Title="JustGiving" Foreground="#78256d">
-            
             <phone:PivotItem Header="All">
-                <Grid/>
-            </phone:PivotItem>            
+                <ListBox>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <toolkit:WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
+                    <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Event" Message="We are doing the 5k for race for life for Cancer Research UK." Source="/Assets/Fakes/event_1.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                </ListBox>
+            </phone:PivotItem>
             <phone:PivotItem Header="Charities">
-                <Grid/>
-            </phone:PivotItem>            
+                <ListBox>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <toolkit:WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <toolkit:HubTile Title="Charity" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/charity_logo_2.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
+                    <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Charity" Message="We are doing the 5k for race for life for Cancer Research UK." Source="/Assets/Fakes/charity_logo.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Charity" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                </ListBox>
+            </phone:PivotItem>
             <phone:PivotItem Header="Fundraising">
-                <Grid/>
+                <ListBox>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <toolkit:WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
+                    <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Event" Message="We are doing the 5k for race for life for Cancer Research UK." Source="/Assets/Fakes/event_1.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                </ListBox>
             </phone:PivotItem>
-            <phone:PivotItem Header="Events">
-                <Grid/>
-            </phone:PivotItem>
-            <phone:PivotItem Header="Projects">
-                <Grid/>
-            </phone:PivotItem>
+            <phone:PivotItem Header="Search">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.7*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBox Width="350" Height="70" VerticalAlignment="Top" BorderThickness="2" BorderBrush="#262626" />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ListBox>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <toolkit:WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
+                            <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>                            
+                        </ListBox>
+                    </Grid>
+                    <appbar:BindableAppBar>                       
+                        <appbar:BindableAppBarButton x:Name="Search" IconUri="/Assets/AppBar/new.png" Text="Search" />
+                        <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
+                    </appbar:BindableAppBar>
+                </Grid>                
+            </phone:PivotItem> 
         </phone:Pivot>
     </Grid>
-    
+
 </phone:PhoneApplicationPage>

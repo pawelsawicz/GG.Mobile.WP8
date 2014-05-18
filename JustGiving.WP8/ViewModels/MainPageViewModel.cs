@@ -16,9 +16,9 @@ namespace JustGiving.WP8.ViewModels
         public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-        }
+        }        
 
-        public void ToFundraising()
+        public void TileTap()
         {
             _navigationService.UriFor<FundraisingViewModel>().Navigate();
         }
