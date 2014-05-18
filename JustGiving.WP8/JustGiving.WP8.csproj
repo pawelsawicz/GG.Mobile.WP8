@@ -144,6 +144,7 @@
     <Content Include="Assets\Brand\medium_icon_202.png" />
     <Content Include="Assets\Brand\small_icon_110.png" />
     <Content Include="Assets\Fakes\charity_logo.jpg" />
+    <Resource Include="Assets\Fakes\facebook-avatar.gif" />
     <Content Include="Assets\Fakes\f_avatar.jpg" />
     <Content Include="Assets\Fakes\team_avatar.jpg" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">

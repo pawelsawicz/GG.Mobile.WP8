@@ -13,11 +13,11 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
 
-   
+
     <Grid x:Name="LayoutRoot" Background="White">
         <phone:Panorama Title="Stephen's fundraising page" Foreground="#78256d">
 
-          
+
             <phone:PanoramaItem Header="Summary">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -71,7 +71,7 @@
                 </Grid>
             </phone:PanoramaItem>
 
-           
+
             <phone:PanoramaItem Header="Story and Team">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -110,7 +110,88 @@
 
             <phone:PanoramaItem Header="Donations">
                 <Grid>
-
+                    <ListBox>
+                        <ListBoxItem>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Image Source="/Assets/Fakes/facebook-avatar.gif" Width="100" Height="100"/>
+                                </Grid>
+                                <StackPanel Grid.Column="1" Margin="12 0 0 0">
+                                    <TextBlock Text="In memory of an inspirational young man!" Foreground="#262626" FontSize="18" TextWrapping="Wrap" />
+                                    <TextBlock Text="Donation by Miriam Lamont on 17/05/14" Foreground="#262626" FontSize="12" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Margin="12 0 0 0">
+                                    <TextBlock Text="£5.00" Foreground="#262626"/>
+                                    <TextBlock Text="+ £1.25 Gift Aid" Foreground="#262626" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Image Source="/Assets/Fakes/facebook-avatar.gif" Width="100" Height="100"/>
+                                </Grid>
+                                <StackPanel Grid.Column="1" Margin="12 0 0 0">
+                                    <TextBlock Text="In memory of an inspirational young man!" Foreground="#262626" FontSize="18" TextWrapping="Wrap" />
+                                    <TextBlock Text="Donation by Miriam Lamont on 17/05/14" Foreground="#262626" FontSize="12" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Margin="12 0 0 0">
+                                    <TextBlock Text="£5.00" Foreground="#262626"/>
+                                    <TextBlock Text="+ £1.25 Gift Aid" Foreground="#262626" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Image Source="/Assets/Fakes/facebook-avatar.gif" Width="100" Height="100"/>
+                                </Grid>
+                                <StackPanel Grid.Column="1" Margin="12 0 0 0">
+                                    <TextBlock Text="In memory of an inspirational young man!" Foreground="#262626" FontSize="18" TextWrapping="Wrap" />
+                                    <TextBlock Text="Donation by Miriam Lamont on 17/05/14" Foreground="#262626" FontSize="12" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Margin="12 0 0 0">
+                                    <TextBlock Text="£5.00" Foreground="#262626"/>
+                                    <TextBlock Text="+ £1.25 Gift Aid" Foreground="#262626" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Grid Margin="0 0 0 12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.3*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Image Source="/Assets/Fakes/facebook-avatar.gif" Width="100" Height="100"/>
+                                </Grid>
+                                <StackPanel Grid.Column="1" Margin="12 0 0 0">
+                                    <TextBlock Text="In memory of an inspirational young man!" Foreground="#262626" FontSize="18" TextWrapping="Wrap" />
+                                    <TextBlock Text="Donation by Miriam Lamont on 17/05/14" Foreground="#262626" FontSize="12" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Margin="12 0 0 0">
+                                    <TextBlock Text="£5.00" Foreground="#262626"/>
+                                    <TextBlock Text="+ £1.25 Gift Aid" Foreground="#262626" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListBoxItem>
+                    </ListBox>
                 </Grid>
             </phone:PanoramaItem>
 
