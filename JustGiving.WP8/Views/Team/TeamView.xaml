@@ -11,7 +11,8 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="False"
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar">
 
    
     <Grid x:Name="LayoutRoot" Background="White">
@@ -71,10 +72,36 @@
                     </Grid>
                 </Grid>
             </phone:PanoramaItem>
-
-      
             <phone:PanoramaItem Header="Team members">
-                <Grid/>
+                <Grid>
+                    <ListBox>
+                        <Grid Width="410">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Image Source="/Assets/Fakes/team_member_avatar.jpg" Width="100" />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <TextBox Text="Anne Butler" Foreground="#262626" FontSize="18" TextWrapping="Wrap"/>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <TextBox Text="80%" Foreground="#262626" FontSize="18" TextWrapping="Wrap"/>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <TextBox Text="£280.00" Foreground="#262626" FontSize="16" />
+                            </Grid>
+                        </Grid>
+                    </ListBox>
+                    <appbar:BindableAppBar>
+                        <appbar:BindableAppBarButton x:Name="NavigateToFundraisingPage" IconUri="/Assets/AppBar/new.png" Text="Navigate" />
+                        <appbar:BindableAppBarButton x:Name="NavigateToDonate" IconUri="/Assets/AppBar/new.png" Text="Donate" />
+                        <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
+                    </appbar:BindableAppBar>
+                </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>
