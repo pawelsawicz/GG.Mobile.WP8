@@ -17,8 +17,6 @@
 
     <Grid x:Name="LayoutRoot" Background="White">
         <phone:Panorama Title="Stephen's fundraising page" Foreground="#78256d">
-
-
             <phone:PanoramaItem Header="Summary">
                 <Grid>
                     <Grid.ColumnDefinitions>
