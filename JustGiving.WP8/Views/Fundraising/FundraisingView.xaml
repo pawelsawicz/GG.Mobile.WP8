@@ -197,7 +197,11 @@
 
             <phone:PanoramaItem Header="Gallery">
                 <Grid>
-
+                    <ListBox>
+                        <ListBoxItem>
+                            <Image Source="/Assets/Fakes/s_gallery.jpg" Width="100" Height="100" />
+                        </ListBoxItem>
+                    </ListBox>
                 </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>
