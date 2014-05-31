@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="ViewModels\Access\LoginViewModel.cs" />
     <Compile Include="ViewModels\Access\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\Common\AccountViewModel.cs" />
     <Compile Include="ViewModels\Fundraising\FundraisingViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\Team\TeamViewModel.cs" />
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="Views\Access\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Common\AccountView.xaml.cs">
+      <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Common\HelpView.xaml.cs">
       <DependentUpon>HelpView.xaml</DependentUpon>
@@ -205,15 +209,17 @@
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\System.Windows.Interactivity.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Views\Access\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Access\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Common\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
