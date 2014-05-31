@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using JustGiving.WP8.ViewModels.Access;
 using JustGiving.WP8.ViewModels.Fundraising;
+using System.Windows;
+using System.IO.IsolatedStorage;
+using System.ComponentModel;
 
 namespace JustGiving.WP8.ViewModels
 {
@@ -21,6 +24,20 @@ namespace JustGiving.WP8.ViewModels
         public void TileTap()
         {
             _navigationService.UriFor<FundraisingViewModel>().Navigate();
+        }
+
+        public void BackKeyPressed(CancelEventArgs eventArgs)
+        {
+            IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+            if (settings.Contains("userAccount"))
+            {
+                eventArgs.Cancel = true;
+            }
+            else
+            {
+                MessageBox.Show("Logout");
+                _navigationService.UriFor<LoginViewModel>().Navigate();
+            }            
         }
     }
 }

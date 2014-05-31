@@ -33,11 +33,11 @@
             <StackPanel>
                 <Grid>
                     <TextBlock Text="E-mail address" Foreground="#262626" VerticalAlignment="Center" />
-                    <TextBox Width="300" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    <TextBox x:Name="UserName" Width="300" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                 </Grid>
                 <Grid>
                     <TextBlock Text="Password" Foreground="#262626" VerticalAlignment="Center" />
-                    <TextBox Width="300" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    <TextBox x:Name="Password" Width="300" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                 </Grid>
                 <Grid>
                     <TextBlock Text="Remeber ?" Foreground="#262626" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 64 0"/>

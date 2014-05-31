@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using RestSharp.Deserializers;
 
 namespace JustGiving.WP8.Repository
 {
@@ -11,12 +12,12 @@ namespace JustGiving.WP8.Repository
     {
         private static Task<T> ExecuteAsyncTask<T>(this RestClient restClient, IRestRequest request, Func<IRestResponse, T> selector)
         {
-            var task = new TaskCompletionSource<T>();
+            var task = new TaskCompletionSource<T>();            
             var response = restClient.ExecuteAsync(request, r =>
             {
                 if (r.ErrorException == null)
                 {
-                    task.SetResult(selector(r));
+                    task.SetResult(selector(r));                    
                 }
                 else
                 {
@@ -36,6 +37,5 @@ namespace JustGiving.WP8.Repository
         {
             return restClient.ExecuteAsyncTask(request, r => r);
         }
-
     }
 }

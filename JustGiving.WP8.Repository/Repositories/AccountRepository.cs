@@ -4,19 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using RestSharp.Deserializers;
+using Newtonsoft.Json;
+using System.IO.IsolatedStorage;
 namespace JustGiving.WP8.Repository.Repositories
 {
-    public class AccountRepository
+    public class AccountRepository : RepositoryBase
     {
-        public async void AuthenticateAccount(string userName, string password)
+        public async Task<bool> AuthenticateAccount(string userName, string password)
+        {           
+            Client.Authenticator = new HttpBasicAuthenticator(userName, password);
+            Request.Resource = "/account";
+            Request.Method = Method.GET;
+            Request.RequestFormat = DataFormat.Xml;
+            var response = await Client.GetResponseAsync(Request);            
+            XmlDeserializer deserializer = new XmlDeserializer();
+            var model = deserializer.Deserialize<AccountVerefication>(response);
+
+            if (model != null)
+            {
+                AddAccountToSession(model);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private void AddAccountToSession(AccountVerefication model)
         {
-            var client = new RestClient("https://api-sandbox.justgiving.com/v1");
-            client.Authenticator = new HttpBasicAuthenticator("", "");
-            var request = new RestRequest("/account", Method.GET);
-            request.AddHeader("x-api-key", "0f938d22");
-            var response = await client.GetContentAsync(request);   
-                     
-        }        
+            IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+
+            if (!settings.Contains("userAccount"))
+            {
+                settings.Add("userAccount", model);
+            }
+        }
     }
 
     public class AccountVerefication

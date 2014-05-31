@@ -14,7 +14,8 @@
     shell:SystemTray.IsVisible="True"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
-    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar">
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:Interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
@@ -85,7 +86,11 @@
                     </appbar:BindableAppBar>
                 </Grid>                
             </phone:PivotItem> 
-        </phone:Pivot>
-    </Grid>
-
+        </phone:Pivot>        
+    </Grid>    
+    <Interactivity:Interaction.Triggers>
+        <Interactivity:EventTrigger EventName="OnBackKeyPress">
+            <cal:ActionMessage MethodName="BackKeyPressed" />
+        </Interactivity:EventTrigger>        
+    </Interactivity:Interaction.Triggers>
 </phone:PhoneApplicationPage>
