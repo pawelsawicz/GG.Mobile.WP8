@@ -21,26 +21,26 @@
         <phone:Panorama Title="Registration" Foreground="#78256d" >
             
             <phone:PanoramaItem Header="Personal">
-                <StackPanel>
+                <StackPanel cal:Bind.Model="{Binding AccountRegistrationModel}">
                     <Grid>
                         <TextBlock Text="Title" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Title" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Email" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Email" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="First name" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="FirstName" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Last name" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="LastName" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Password" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Password" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Retype password" Foreground="#262626" VerticalAlignment="Center" />
@@ -49,32 +49,31 @@
                 </StackPanel>
             </phone:PanoramaItem>
             <phone:PanoramaItem Header="Address">
-                <StackPanel>
-                    <Grid>   
-                        
+                <StackPanel cal:Bind.Model="{Binding AccountRegistrationModel.Address}">
+                    <Grid>
                         <TextBlock Text="Country" Foreground="#262626" VerticalAlignment="Center" />
-                        <!--<TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />-->
-                        <toolkit:ListPicker Width="250" Height="60" Background="#1d67be" ExpansionMode="FullScreenOnly" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Country" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <!--<toolkit:ListPicker Width="250" Height="60" Background="#1d67be" ExpansionMode="FullScreenOnly" HorizontalAlignment="Right" />-->
                     </Grid>
                     <Grid>
-                        <TextBlock Text="Country / State" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBlock Text="County / State" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox x:Name="CountyOrState" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Address line 1" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Line1" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="address line 2" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Line2" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Postcode / Zipcode" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="PostCodeOrZipCode" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="Town / City" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="TownOrCity" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                 </StackPanel>
             </phone:PanoramaItem>
@@ -85,7 +84,7 @@
                         <CheckBox BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
-                        <Button x:Name="TryLogin" Content="Sign up" Width="250" Height="80" Background="#1d67be" />
+                        <Button x:Name="TrySignUp" Content="Sign up" Width="250" Height="80" Background="#1d67be" />
                     </Grid>
                 </StackPanel>
             </phone:PanoramaItem>
