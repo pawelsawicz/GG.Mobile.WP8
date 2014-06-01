@@ -11,7 +11,7 @@ namespace JustGiving.WP8.Repository.Models
     {
         public FundraisingPage()
         {
-            //InMemoryPerson = new Person();
+            InMemoryPerson = new Person();
         }
 
         public int CompanyAppealId { get; set; }
