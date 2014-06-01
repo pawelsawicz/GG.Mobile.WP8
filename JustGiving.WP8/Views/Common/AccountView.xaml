@@ -11,17 +11,85 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="False"
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar">
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <phone:Panorama Title="My Account" Foreground="#78256d">
          
             <phone:PanoramaItem Header="My fundraising">
+                <ListBox SelectionMode="Single">
+                    <ListBoxItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.8*" />
+                                <RowDefinition Height="0.2*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.4*" />
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <Image Source="/Assets/Fakes/page_avatar.jpg" />
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                <TextBlock Text="Pawel's For Them" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </Grid>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                <TextBlock Text="Target" Foreground="#262626" FontSize="16" TextWrapping="Wrap" />
+                                <TextBlock Text="£50.00" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                <TextBlock Text="00.00" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                                <TextBlock Text="0 donations" Foreground="#262626" FontSize="16"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+                                <TextBlock Text="Raising money for Leukaemia and Lymphoma Research" Foreground="#262626" FontSize="16" />
+                            </StackPanel>
+                        </Grid>                        
+                    </ListBoxItem>
+                    <ListBoxItem Margin="0 12 0 0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.8*" />
+                                <RowDefinition Height="0.2*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.4*" />
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <Image Source="/Assets/Fakes/page_avatar.jpg" />
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                <TextBlock Text="Pawel's For Them" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </Grid>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                <TextBlock Text="Target" Foreground="#262626" FontSize="16" TextWrapping="Wrap" />
+                                <TextBlock Text="£50.00" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                <TextBlock Text="00.00" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                                <TextBlock Text="0 donations" Foreground="#262626" FontSize="16"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+                                <TextBlock Text="Raising money for Leukaemia and Lymphoma Research" Foreground="#262626" FontSize="16" />
+                            </StackPanel>
+                        </Grid>
+                    </ListBoxItem>
+                </ListBox>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="My teams">
                 <Grid/>
             </phone:PanoramaItem>
-           
-            <phone:PanoramaItem Header="My Giving">
+
+            <phone:PanoramaItem Header="My giving">
                 <Grid/>
             </phone:PanoramaItem>
 
@@ -29,6 +97,9 @@
                 <Grid/>
             </phone:PanoramaItem>
         </phone:Panorama>
+        <appbar:BindableAppBar>
+            <appbar:BindableAppBarButton x:Name="NavigateToCreateNewPage" IconUri="/Assets/AppBar/new.png" Text="new page" />
+            <appbar:BindableAppBarButton x:Name="NavigateToCreateNewTeam" IconUri="/Assets/AppBar/new.png" Text="new team" />            
+        </appbar:BindableAppBar>
     </Grid>
-
 </phone:PhoneApplicationPage>

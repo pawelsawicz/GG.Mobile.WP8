@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using System.Windows;
 
 namespace JustGiving.WP8.ViewModels.Common
 {
@@ -16,6 +17,14 @@ namespace JustGiving.WP8.ViewModels.Common
             _navigationService = navigationService;
         }
 
+        public void NavigateToCreateNewPage()
+        {
+            MessageBox.Show("not implemented yet");
+        }
 
+        public void NavigateToCreateNewTeam()
+        {
+            MessageBox.Show("not implemented yet");
+        }
     }
 }

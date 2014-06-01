@@ -83,6 +83,7 @@
                     <appbar:BindableAppBar>                       
                         <appbar:BindableAppBarButton x:Name="Search" IconUri="/Assets/AppBar/new.png" Text="Search" />
                         <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
+                        <appbar:BindableAppBarButton x:Name="NavigateToAccount" IconUri="/Assets/AppBar/questionmark.png" Text="Account" />
                     </appbar:BindableAppBar>
                 </Grid>                
             </phone:PivotItem> 
