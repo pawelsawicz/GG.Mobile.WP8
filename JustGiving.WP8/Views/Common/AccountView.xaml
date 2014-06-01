@@ -86,7 +86,32 @@
             </phone:PanoramaItem>
 
             <phone:PanoramaItem Header="My teams">
-                <Grid/>
+                <ListBox SelectionMode="Single">
+                    <ListBoxItem>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*" />                                
+                                <RowDefinition Height="0.5*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.5*" MinWidth="190" />
+                                <ColumnDefinition Width="0.3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <Image Source="/Assets/Fakes/team_avatar.jpg" />
+                            </Grid>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                <TextBlock Text="Pawel Sawicz Team" Foreground="#262626" FontSize="16" />
+                                <TextBlock Text="sawiczteam" Foreground="#262626" FontSize="12"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                <TextBlock Text="Members" Foreground="#262626" FontSize="16"/>
+                                <TextBlock Text="1" Foreground="#262626" FontSize="16"/>
+                            </StackPanel>
+                        </Grid>
+                    </ListBoxItem>
+                </ListBox>
             </phone:PanoramaItem>
 
             <phone:PanoramaItem Header="My giving">
