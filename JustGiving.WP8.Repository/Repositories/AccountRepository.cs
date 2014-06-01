@@ -7,6 +7,7 @@ using RestSharp;
 using RestSharp.Deserializers;
 using Newtonsoft.Json;
 using System.IO.IsolatedStorage;
+using JustGiving.WP8.Repository.Models;
 namespace JustGiving.WP8.Repository.Repositories
 {
     public class AccountRepository : RepositoryBase
@@ -19,7 +20,7 @@ namespace JustGiving.WP8.Repository.Repositories
         }
 
         public async Task<bool> AuthenticateAccount(string userName, string password)
-        {           
+        {
             Client.Authenticator = new HttpBasicAuthenticator(userName, password);
             Request.Resource = "/account";
             Request.Method = Method.GET;
@@ -52,9 +53,10 @@ namespace JustGiving.WP8.Repository.Repositories
         {
             Request.Resource = "/account";
             Request.Method = Method.PUT;
-            Request.RequestFormat = DataFormat.Json;
+            Request.RequestFormat = DataFormat.Xml;
             Request.AddBody(model);
             var response = await Client.GetResponseAsync(Request);
+
             var responseModel = _deserializer.Deserialize<AccountRegistrationResponse>(response);
 
             if (responseModel != null)
@@ -65,6 +67,27 @@ namespace JustGiving.WP8.Repository.Repositories
             {
                 return null;
             }
+        }
+
+        public async Task<List<FundraisingPage>> GetFundraisingPagesForUser(string email)
+        {
+            Request.Resource = "/account/{email}/pages";
+            Request.AddUrlSegment("email", email);
+            Request.Method = Method.GET;
+            Request.RequestFormat = DataFormat.Xml;
+            Request.RootElement = "fundraisingPages";
+            var responseModel = new List<FundraisingPage>();
+            var response = await Client.GetResponseAsync(Request);
+            try
+            {
+                responseModel = _deserializer.Deserialize<List<FundraisingPage>>(response);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return responseModel;
         }
     }
 
@@ -114,4 +137,6 @@ namespace JustGiving.WP8.Repository.Repositories
         public string PostCodeOrZipCode { get; set; }
         public string TownOrCity { get; set; }
     }
+
+
 }
