@@ -115,7 +115,74 @@
             </phone:PanoramaItem>
 
             <phone:PanoramaItem Header="My giving">
-                <Grid/>
+                <ListBox SelectionMode="Single">
+                    <ListBoxItem>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.4*" MinWidth="180" />
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.2*" MinWidth="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="01/06/2014" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                <TextBlock Text="Leukaemia Lymphoma Research" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                <TextBlock Text="£10.00" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                <TextBlock Text="Authorised" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                        </Grid>
+                    </ListBoxItem>
+                    <ListBoxItem Margin="0 24 0 0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.4*" MinWidth="180" />
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.2*" MinWidth="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="01/06/2014" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                <TextBlock Text="Leukaemia Lymphoma Research" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                <TextBlock Text="£10.00" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                <TextBlock Text="Authorised" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                        </Grid>
+                    </ListBoxItem>
+                    <ListBoxItem Margin="0 24 0 0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.4*" MinWidth="180" />
+                                <ColumnDefinition Width="0.2*" />
+                                <ColumnDefinition Width="0.2*" MinWidth="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="01/06/2014" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                <TextBlock Text="Leukaemia Lymphoma Research" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                <TextBlock Text="£10.00" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                <TextBlock Text="Authorised" Foreground="#262626" FontSize="16"/>
+                            </Grid>
+                        </Grid>
+                    </ListBoxItem>
+                </ListBox>
             </phone:PanoramaItem>
 
             <phone:PanoramaItem Header="My details">
