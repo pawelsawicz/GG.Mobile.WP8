@@ -186,7 +186,39 @@
             </phone:PanoramaItem>
 
             <phone:PanoramaItem Header="My details">
-                <Grid/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*" />
+                        <RowDefinition Height="0.4*" />
+                        <RowDefinition Height="0.1*" />
+                        <RowDefinition Height="0.4*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="About you" FontSize="24" />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ListBox>
+                            <StackPanel>
+                                <TextBlock Text="Pawel SawiczTest" Foreground="#262626"/>
+                                <TextBlock Text="info@helbards.com" Foreground="#262626"/>
+                            </StackPanel>
+                        </ListBox>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <TextBlock Text="Address" FontSize="24" />
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <ListBox>
+                            <StackPanel>
+                                <TextBlock Text="podchorazych" Foreground="#262626" />
+                                <TextBlock Text="zary" Foreground="#262626" />
+                                <TextBlock Text="lubuskie" Foreground="#262626" />
+                                <TextBlock Text="68-200" Foreground="#262626" />
+                                <TextBlock Text="Poland" Foreground="#262626" />
+                            </StackPanel>
+                        </ListBox>
+                    </Grid>
+                </Grid>
             </phone:PanoramaItem>
         </phone:Panorama>
         <appbar:BindableAppBar>
