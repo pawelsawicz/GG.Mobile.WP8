@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using JustGiving.WP8.Repository.Repositories;
 using System.Windows;
+using JustGiving.WP8.Repository.Models;
 
 namespace JustGiving.WP8.ViewModels.Access
 {

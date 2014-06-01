@@ -83,6 +83,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Models\AccountRegistration.cs" />
+    <Compile Include="Models\AccountRegistrationResponse.cs" />
+    <Compile Include="Models\AccountVerefication.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\FundraisingPage.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
