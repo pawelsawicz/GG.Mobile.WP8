@@ -93,6 +93,7 @@
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="RestSharpExtension.cs" />
+    <Compile Include="UserHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

@@ -15,7 +15,7 @@ namespace JustGiving.WP8.ViewModels.Access
         private readonly INavigationService _navigationService;
         private readonly AccountRepository _accountRepository;
         public AccountRegistration AccountRegistrationModel { get; set; }
-
+        
 
         public RegistrationViewModel(INavigationService navigationService)
         {

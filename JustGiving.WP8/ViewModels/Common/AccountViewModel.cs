@@ -16,6 +16,7 @@ namespace JustGiving.WP8.ViewModels.Common
         private readonly AccountRepository _accountRepository;
 
         public List<FundraisingPage> UserFundraisingPages { get; set; }
+        public List<Donation> UserDonations { get; set; }
 
         public AccountViewModel(INavigationService navigationService)
         {
@@ -27,6 +28,7 @@ namespace JustGiving.WP8.ViewModels.Common
         private async void LoadPageContent()
         {
             UserFundraisingPages = await _accountRepository.GetFundraisingPagesForUser("info@helbards.com");
+            UserDonations = await _accountRepository.GetDonationsForUser();
         }
 
         public void NavigateToCreateNewPage()

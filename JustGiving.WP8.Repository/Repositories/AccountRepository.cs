@@ -31,6 +31,7 @@ namespace JustGiving.WP8.Repository.Repositories
             if (responseModel != null)
             {
                 AddAccountToSession(responseModel);
+                SetBasicAuthenticator(userName, password);
                 return true;
             }
             else
@@ -41,11 +42,18 @@ namespace JustGiving.WP8.Repository.Repositories
 
         private void AddAccountToSession(AccountVerefication model)
         {
-            IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+            UserHelper.User = model;            
+        }
 
-            if (!settings.Contains("userAccount"))
+        private void SetBasicAuthenticator(string userName, string password)
+        {
+            try
             {
-                settings.Add("userAccount", model);
+                UserHelper.BasicAuthenticator = new Account() { UserName = userName, Password = password };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -89,6 +97,52 @@ namespace JustGiving.WP8.Repository.Repositories
 
             return responseModel;
         }
+
+        public async Task<List<Donation>> GetDonationsForUser()
+        {
+            Client.Authenticator = new HttpBasicAuthenticator(UserHelper.BasicAuthenticator.UserName, UserHelper.BasicAuthenticator.Password);
+            var responseModel = new List<Donation>();
+            Request.Resource = "/account/donations";
+            Request.Method = Method.GET;
+            Request.RequestFormat = DataFormat.Xml;
+            var response = await Client.GetResponseAsync(Request);
+            try
+            {
+                responseModel = _deserializer.Deserialize<List<Donation>>(response);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return responseModel;
+        }
+
     }
 
+    public class Donation
+    {
+        public string Amount { get; set; }
+        public string currencyCode { get; set; }
+        public DateTime DonationDate { get; set; }
+        public string DonationRef { get; set; }
+        public string DonorDisplayName { get; set; }
+        public string DonorLocalAmount { get; set; }
+        public string DonorLocalCurrencyCode { get; set; }
+        public double DstimatedTaxReclaim { get; set; }
+        public int Id { get; set; }
+        public string Source { get; set; }
+        public string Status { get; set; }
+        public string ThirdPartyReference { get; set; }
+        public int CharityId { get; set; }
+        public string CharityName { get; set; }
+        public string PaymentType { get; set; }
+
+    }
+
+    public class Account
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
 }
