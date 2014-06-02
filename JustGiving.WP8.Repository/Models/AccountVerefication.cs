@@ -9,13 +9,13 @@ namespace JustGiving.WP8.Repository.Models
     public class AccountVerefication
     {
         public string Email { get; set; }
-        public int activePageCount { get; set; }
-        public int completedPagesCount { get; set; }
-        public decimal totalDonated { get; set; }
-        public decimal totalDonatedGiftAid { get; set; }
-        public decimal totalGiftAid { get; set; }
-        public decimal totalRaised { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
+        public int ActivePageCount { get; set; }
+        public int CompletedPagesCount { get; set; }
+        public decimal TotalDonated { get; set; }
+        public decimal TotalDonatedGiftAid { get; set; }
+        public decimal TotalGiftAid { get; set; }
+        public decimal TotalRaised { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

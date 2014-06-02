@@ -29,7 +29,7 @@ namespace JustGiving.WP8.Repository.Models
         public string PageStatus { get; set; }
         public string PageTitle { get; set; }
         public double RaisedAmount { get; set; }
-        public double  TargetAmount { get; set; }
+        public double TargetAmount { get; set; }
         public double TotalRaisedOnline { get; set; }
         public string SmsCode { get; set; }
         public int CharityId { get; set; }
