@@ -14,15 +14,19 @@ namespace JustGiving.WP8.ViewModels.Access
     {
         private readonly INavigationService _navigationService;
         private readonly AccountRepository _accountRepository;
+        private readonly CountriesRepository _countryRepository;
+
         public AccountRegistration AccountRegistrationModel { get; set; }
-        
+        public List<JustGiving.WP8.Repository.Repositories.CountriesRepository.Country> Countries { get; set; }
 
         public RegistrationViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
             _accountRepository = new AccountRepository();
+            _countryRepository = new Repository.Repositories.CountriesRepository();
             AccountRegistrationModel = new AccountRegistration();
             AccountRegistrationModel.AcceptTermsAndConditions = true;
+            LoadPageContent();
         }
 
         public async void TrySignUp()
@@ -58,6 +62,11 @@ namespace JustGiving.WP8.ViewModels.Access
         public void NavigateToTermsAndConditions()
         {
 
+        }
+
+        private async void LoadPageContent()
+        {
+            Countries = await _countryRepository.GetListOfCountries();
         }
     }
 }
