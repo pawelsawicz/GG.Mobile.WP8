@@ -12,14 +12,48 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False"
-    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar">
+    xmlns:appbar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <phone:Panorama Title="My Account" Foreground="#78256d">
          
             <phone:PanoramaItem Header="My fundraising">
-                <ListBox SelectionMode="Single">
+                <ListBox x:Name="UserFundraisingPages" SelectionMode="Single">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 24 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.8*" />
+                                    <RowDefinition Height="0.2*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.4*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="0" Grid.Column="0">
+                                    <Image Source="/Assets/Fakes/page_avatar.jpg" />
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                    <TextBlock Text="{Binding PageTitle}" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                                </Grid>
+                                <StackPanel Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                    <TextBlock Text="Target" Foreground="#262626" FontSize="16" TextWrapping="Wrap" />
+                                    <TextBlock Text="{Binding TargetAmount}" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                    <TextBlock Text="{Binding RaisedAmount}" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                                    <TextBlock Text="0 donations" Foreground="#262626" FontSize="16"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+                                    <TextBlock Text="{Binding CharityId}" Foreground="#262626" FontSize="16" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                     <ListBoxItem>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -50,38 +84,7 @@
                                 <TextBlock Text="Raising money for Leukaemia and Lymphoma Research" Foreground="#262626" FontSize="16" />
                             </StackPanel>
                         </Grid>                        
-                    </ListBoxItem>
-                    <ListBoxItem Margin="0 12 0 0">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0.8*" />
-                                <RowDefinition Height="0.2*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.2*"/>
-                                <ColumnDefinition Width="0.4*" />
-                                <ColumnDefinition Width="0.2*" />
-                                <ColumnDefinition Width="0.2*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Row="0" Grid.Column="0">
-                                <Image Source="/Assets/Fakes/page_avatar.jpg" />
-                            </Grid>
-                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
-                                <TextBlock Text="Pawel's For Them" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
-                            </Grid>
-                            <StackPanel Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
-                                <TextBlock Text="Target" Foreground="#262626" FontSize="16" TextWrapping="Wrap" />
-                                <TextBlock Text="£50.00" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
-                                <TextBlock Text="00.00" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
-                                <TextBlock Text="0 donations" Foreground="#262626" FontSize="16"/>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-                                <TextBlock Text="Raising money for Leukaemia and Lymphoma Research" Foreground="#262626" FontSize="16" />
-                            </StackPanel>
-                        </Grid>
-                    </ListBoxItem>
+                    </ListBoxItem>                    
                 </ListBox>
             </phone:PanoramaItem>
 
@@ -115,29 +118,31 @@
             </phone:PanoramaItem>
 
             <phone:PanoramaItem Header="My giving">
-                <ListBox SelectionMode="Single">
-                    <ListBoxItem>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.2*" />
-                                <ColumnDefinition Width="0.4*" MinWidth="180" />
-                                <ColumnDefinition Width="0.2*" />
-                                <ColumnDefinition Width="0.2*" MinWidth="100"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Row="0" Grid.Column="0">
-                                <TextBlock Text="01/06/2014" Foreground="#262626" FontSize="16"/>
+                <ListBox x:Name="UserDonations" SelectionMode="Single">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 24 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="0.4*" MinWidth="180" />
+                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="0.2*" MinWidth="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="0" Grid.Column="0">
+                                    <TextBlock Text="{Binding DonationDate}" Foreground="#262626" FontSize="16"/>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
+                                    <TextBlock Text="{Binding CharityName}" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
+                                    <TextBlock Text="{Binding Amount}" Foreground="#262626" FontSize="16"/>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
+                                    <TextBlock Text="{Binding Status}" Foreground="#262626" FontSize="16"/>
+                                </Grid>
                             </Grid>
-                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
-                                <TextBlock Text="Leukaemia Lymphoma Research" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
-                            </Grid>
-                            <Grid Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
-                                <TextBlock Text="£10.00" Foreground="#262626" FontSize="16"/>
-                            </Grid>
-                            <Grid Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
-                                <TextBlock Text="Authorised" Foreground="#262626" FontSize="16"/>
-                            </Grid>
-                        </Grid>
-                    </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>                    
                     <ListBoxItem Margin="0 24 0 0">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -159,29 +164,7 @@
                                 <TextBlock Text="Authorised" Foreground="#262626" FontSize="16"/>
                             </Grid>
                         </Grid>
-                    </ListBoxItem>
-                    <ListBoxItem Margin="0 24 0 0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.2*" />
-                                <ColumnDefinition Width="0.4*" MinWidth="180" />
-                                <ColumnDefinition Width="0.2*" />
-                                <ColumnDefinition Width="0.2*" MinWidth="100"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Row="0" Grid.Column="0">
-                                <TextBlock Text="01/06/2014" Foreground="#262626" FontSize="16"/>
-                            </Grid>
-                            <Grid Grid.Row="0" Grid.Column="1" Margin="12 0 0 0">
-                                <TextBlock Text="Leukaemia Lymphoma Research" Foreground="#262626" FontSize="16" TextWrapping="Wrap"/>
-                            </Grid>
-                            <Grid Grid.Row="0" Grid.Column="2" Margin="12 0 0 0">
-                                <TextBlock Text="£10.00" Foreground="#262626" FontSize="16"/>
-                            </Grid>
-                            <Grid Grid.Row="0" Grid.Column="3" Margin="12 0 0 0">
-                                <TextBlock Text="Authorised" Foreground="#262626" FontSize="16"/>
-                            </Grid>
-                        </Grid>
-                    </ListBoxItem>
+                    </ListBoxItem>                    
                 </ListBox>
             </phone:PanoramaItem>
 
@@ -199,8 +182,8 @@
                     <Grid Grid.Row="1">
                         <ListBox>
                             <StackPanel>
-                                <TextBlock Text="Pawel SawiczTest" Foreground="#262626"/>
-                                <TextBlock Text="info@helbards.com" Foreground="#262626"/>
+                                <TextBlock Text="{Binding AccountInformation.FirstName}" Foreground="#262626"/>
+                                <TextBlock Text="{Binding AccountInformation.Email}" Foreground="#262626"/>
                             </StackPanel>
                         </ListBox>
                     </Grid>
@@ -220,6 +203,7 @@
                     </Grid>
                 </Grid>
             </phone:PanoramaItem>
+            
         </phone:Panorama>
         <appbar:BindableAppBar>
             <appbar:BindableAppBarButton x:Name="NavigateToCreateNewPage" IconUri="/Assets/AppBar/new.png" Text="new page" />

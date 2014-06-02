@@ -7,7 +7,7 @@ using Caliburn.Micro;
 using System.Windows;
 using JustGiving.WP8.Repository.Repositories;
 using JustGiving.WP8.Repository.Models;
-
+using JustGiving.WP8.Repository;
 namespace JustGiving.WP8.ViewModels.Common
 {
     public class AccountViewModel : PropertyChangedBase
@@ -15,8 +15,47 @@ namespace JustGiving.WP8.ViewModels.Common
         private readonly INavigationService _navigationService;
         private readonly AccountRepository _accountRepository;
 
-        public List<FundraisingPage> UserFundraisingPages { get; set; }
-        public List<Donation> UserDonations { get; set; }
+        private BindableCollection<FundraisingPage> _userFundraisingPages;
+        public BindableCollection<FundraisingPage> UserFundraisingPages
+        {
+            get
+            {
+                return _userFundraisingPages;
+            }
+            set
+            {
+                _userFundraisingPages = value;
+                NotifyOfPropertyChange(() => UserFundraisingPages);
+            }
+        }
+
+        private BindableCollection<Donation> _userDonations;
+        public BindableCollection<Donation> UserDonations
+        {
+            get
+            {
+                return _userDonations;
+            }
+            set
+            {
+                _userDonations = value;
+                NotifyOfPropertyChange(() => UserDonations);
+            }
+        }
+
+        private AccountVerefication _accountInformation;
+        public AccountVerefication AccountInformation
+        {
+            get
+            {
+                return _accountInformation;
+            }
+            set
+            {
+                _accountInformation = value;
+                NotifyOfPropertyChange(() => AccountInformation);
+            }
+        }        
 
         public AccountViewModel(INavigationService navigationService)
         {
@@ -27,8 +66,11 @@ namespace JustGiving.WP8.ViewModels.Common
 
         private async void LoadPageContent()
         {
-            UserFundraisingPages = await _accountRepository.GetFundraisingPagesForUser("info@helbards.com");
-            UserDonations = await _accountRepository.GetDonationsForUser();
+            UserFundraisingPages = new BindableCollection<FundraisingPage>();
+            UserDonations = new BindableCollection<Donation>();
+            UserFundraisingPages.AddRange(await _accountRepository.GetFundraisingPagesForUser(UserHelperIsolatedStorage.User.Email));
+            UserDonations.AddRange(await _accountRepository.GetDonationsForUser());
+            AccountInformation = UserHelperIsolatedStorage.User;
         }
 
         public void NavigateToCreateNewPage()
