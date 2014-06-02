@@ -92,6 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\CountriesRepository.cs" />
+    <Compile Include="Repositories\FundraisingRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="RestSharpExtension.cs" />
     <Compile Include="UserHelper.cs" />
