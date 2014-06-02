@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace JustGiving.WP8.Repository
 {
-    public static class UserHelper
+    public static class UserHelperIsolatedStorage
     {
         public static IsolatedStorageSettings _insolatedStorageSettings = IsolatedStorageSettings.ApplicationSettings;
 

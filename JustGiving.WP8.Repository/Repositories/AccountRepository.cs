@@ -30,8 +30,8 @@ namespace JustGiving.WP8.Repository.Repositories
 
             if (responseModel != null)
             {
-                AddAccountToSession(responseModel);
-                SetBasicAuthenticator(userName, password);
+                SetAccountToIsolatedStorage(responseModel);
+                SetBasicAuthenticatorToIsolatedStorage(userName, password);
                 return true;
             }
             else
@@ -40,16 +40,16 @@ namespace JustGiving.WP8.Repository.Repositories
             }
         }
 
-        private void AddAccountToSession(AccountVerefication model)
+        private void SetAccountToIsolatedStorage(AccountVerefication model)
         {
-            UserHelper.User = model;            
+            UserHelperIsolatedStorage.User = model;            
         }
 
-        private void SetBasicAuthenticator(string userName, string password)
+        private void SetBasicAuthenticatorToIsolatedStorage(string userName, string password)
         {
             try
             {
-                UserHelper.BasicAuthenticator = new Account() { UserName = userName, Password = password };
+                UserHelperIsolatedStorage.BasicAuthenticator = new Account() { UserName = userName, Password = password };
             }
             catch (Exception ex)
             {
@@ -100,7 +100,7 @@ namespace JustGiving.WP8.Repository.Repositories
 
         public async Task<List<Donation>> GetDonationsForUser()
         {
-            Client.Authenticator = new HttpBasicAuthenticator(UserHelper.BasicAuthenticator.UserName, UserHelper.BasicAuthenticator.Password);
+            Client.Authenticator = new HttpBasicAuthenticator(UserHelperIsolatedStorage.BasicAuthenticator.UserName, UserHelperIsolatedStorage.BasicAuthenticator.Password);
             var responseModel = new List<Donation>();
             Request.Resource = "/account/donations";
             Request.Method = Method.GET;
