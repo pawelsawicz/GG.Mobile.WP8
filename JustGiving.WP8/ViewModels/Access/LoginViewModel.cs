@@ -54,7 +54,6 @@ namespace JustGiving.WP8.ViewModels.Access
         {
             _navigationService = navigationService;
             _accountRepository = new AccountRepository();
-
         }
 
         public async void TryLogin()
@@ -83,5 +82,6 @@ namespace JustGiving.WP8.ViewModels.Access
         {
             MessageBox.Show("Not implemented yet!");
         }
+        
     }
 }
