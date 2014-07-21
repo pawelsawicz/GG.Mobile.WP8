@@ -14,8 +14,41 @@ namespace JustGiving.WP8.ViewModels.Access
         private readonly INavigationService _navigationService;
         private readonly AccountRepository _accountRepository;
 
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                NotifyOfPropertyChange(() => UserName);
+            }
+        }
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                NotifyOfPropertyChange(() => Password);
+                NotifyOfPropertyChange(() => CanTryLogin);
+            }
+        }
+        public bool CanTryLogin
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Password))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
 
         public LoginViewModel(INavigationService navigationService)
         {
@@ -43,12 +76,12 @@ namespace JustGiving.WP8.ViewModels.Access
 
         public void NavigateToFacebookLogin()
         {
-            
+            MessageBox.Show("Not implemented yet!");
         }
 
         public void NavigateToHelp()
         {
-
+            MessageBox.Show("Not implemented yet!");
         }
     }
 }
