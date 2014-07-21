@@ -41,7 +41,7 @@
                 </Grid>
                 <Grid>
                     <TextBlock Text="Remeber ?" Foreground="#262626" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 64 0"/>
-                    <CheckBox BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    <CheckBox BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" Style="{StaticResource CheckBoxStyle}" />
                 </Grid>
             </StackPanel>
         </Grid>
