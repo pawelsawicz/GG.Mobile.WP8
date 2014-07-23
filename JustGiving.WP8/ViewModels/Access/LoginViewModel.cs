@@ -22,6 +22,7 @@ namespace JustGiving.WP8.ViewModels.Access
             {
                 _userName = value;
                 NotifyOfPropertyChange(() => UserName);
+                NotifyOfPropertyChange(() => CanTryLogin);
             }
         }
         private string _password;
@@ -39,7 +40,7 @@ namespace JustGiving.WP8.ViewModels.Access
         {
             get
             {
-                if (string.IsNullOrEmpty(Password))
+                if (string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(UserName))
                 {
                     return false;
                 }
