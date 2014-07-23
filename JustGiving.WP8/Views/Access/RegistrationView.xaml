@@ -20,15 +20,27 @@
     <Grid x:Name="LayoutRoot" Background="White">
         <phone:Panorama Title="Registration" Foreground="#78256d" >
             
-            <phone:PanoramaItem Header="Personal">
-                <StackPanel cal:Bind.Model="{Binding AccountRegistrationModel}">
-                    <Grid>
-                        <TextBlock Text="Title" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="Title" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
-                    </Grid>
+            <phone:PanoramaItem Header="Log in details">
+                <StackPanel cal:Bind.Model="{Binding RegistrationPropertyViewModel}">
                     <Grid>
                         <TextBlock Text="Email" Foreground="#262626" VerticalAlignment="Center" />
                         <TextBox x:Name="Email" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock Text="Password" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox x:Name="Password" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>
+                    <!--<Grid>
+                        <TextBlock Text="Retype password" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                    </Grid>-->
+                </StackPanel>
+            </phone:PanoramaItem>
+            <phone:PanoramaItem Header="Personal details">
+                <StackPanel cal:Bind.Model="{Binding RegistrationPropertyViewModel}">
+                    <Grid>
+                        <TextBlock Text="Title" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox x:Name="Title" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
                         <TextBlock Text="First name" Foreground="#262626" VerticalAlignment="Center" />
@@ -38,46 +50,30 @@
                         <TextBlock Text="Last name" Foreground="#262626" VerticalAlignment="Center" />
                         <TextBox x:Name="LastName" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
-                    <Grid>
-                        <TextBlock Text="Password" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="Password" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
-                    </Grid>
-                    <Grid>
-                        <TextBlock Text="Retype password" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
-                    </Grid>
                 </StackPanel>
             </phone:PanoramaItem>
-            <phone:PanoramaItem Header="Address">
-                <StackPanel cal:Bind.Model="{Binding AccountRegistrationModel.Address}">
+            <phone:PanoramaItem Header="Address details">
+                <StackPanel cal:Bind.Model="{Binding RegistrationPropertyViewModel}">
                     <Grid>
                         <TextBlock Text="Country" Foreground="#262626" VerticalAlignment="Center" />
                         <TextBox x:Name="Country" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                         <!--<toolkit:ListPicker Width="250" Height="60" Background="#1d67be" ExpansionMode="FullScreenOnly" HorizontalAlignment="Right" />-->
                     </Grid>
                     <Grid>
-                        <TextBlock Text="County / State" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="CountyOrState" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
-                    </Grid>
-                    <Grid>
                         <TextBlock Text="Address line 1" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="Line1" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBox x:Name="Line" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
-                        <TextBlock Text="address line 2" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="Line2" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBlock Text="Postcode" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox x:Name="PostCode" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                     <Grid>
-                        <TextBlock Text="Postcode / Zipcode" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="PostCodeOrZipCode" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
-                    </Grid>
-                    <Grid>
-                        <TextBlock Text="Town / City" Foreground="#262626" VerticalAlignment="Center" />
-                        <TextBox x:Name="TownOrCity" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
+                        <TextBlock Text="City" Foreground="#262626" VerticalAlignment="Center" />
+                        <TextBox x:Name="City" Width="250" Height="70" BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
                     </Grid>
                 </StackPanel>
             </phone:PanoramaItem>
-            <phone:PanoramaItem Header="Submit">
+            <!--<phone:PanoramaItem Header="Submit">
                 <StackPanel>
                     <Grid>
                         <TextBlock Text="Terms and Conditions" Foreground="#262626" VerticalAlignment="Center" />
@@ -87,14 +83,15 @@
                         <Button x:Name="TrySignUp" Content="Sign up" Width="250" Height="80" Background="#1d67be" />
                     </Grid>
                 </StackPanel>
-            </phone:PanoramaItem>
+            </phone:PanoramaItem>-->
 
         </phone:Panorama>          
         <appbar:BindableAppBar>
-            <appbar:BindableAppBarButton x:Name="NavigateToFacebookLogin" IconUri="/Assets/AppBar/new.png" Text="Facebook" />
-            <appbar:BindableAppBarButton x:Name="NavigateToLogin" IconUri="/Assets/AppBar/new.png" Text="Login" />
-            <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
-            <appbar:BindableAppBarButton x:Name="NavigateToTermsAndConditions" IconUri="/Assets/AppBar/questionmark.png" Text="TC" />
+            <appbar:BindableAppBarButton x:Name="TrySignUp" IconUri="/Assets/AppBar/new.png" Text="Sign up" />
+            <!--<appbar:BindableAppBarMenuItem x:Name="NavigateToLogin" Text="Log in" />-->
+            <appbar:BindableAppBarMenuItem x:Name="NavigateToHelp" Text="Help" />
+            <appbar:BindableAppBarMenuItem x:Name="NavigateToTermsAndConditions" Text="Terms" />
+            
         </appbar:BindableAppBar>
     </Grid>
 
