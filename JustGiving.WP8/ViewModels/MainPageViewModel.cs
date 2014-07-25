@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using JustGiving.WP8.Repository.Repositories;
 using JustGiving.WP8.ViewModels.Access;
 using JustGiving.WP8.ViewModels.Fundraising;
 using System.Windows;
@@ -16,10 +17,16 @@ namespace JustGiving.WP8.ViewModels
     public class MainPageViewModel : PropertyChangedBase
     {
         private readonly INavigationService _navigationService;
+        private readonly CharitiesRepository _charitiesRepository;
+
+        public BindableCollection<CharitySearchResult> Charities { get; set; }
 
         public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+            _charitiesRepository = new CharitiesRepository();
+            Charities = new BindableCollection<CharitySearchResult>();
+            LoadPageContent();
         }        
 
         public void TileTap()
@@ -44,6 +51,11 @@ namespace JustGiving.WP8.ViewModels
         public void NavigateToAccount()
         {
             _navigationService.UriFor<AccountViewModel>().Navigate();
+        }
+
+        private async void LoadPageContent()
+        {
+            Charities.AddRange(await _charitiesRepository.GetSixRandomCharities());
         }
     }
 }
