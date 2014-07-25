@@ -77,22 +77,9 @@
                     </StackPanel>
                 </StackPanel>
             </phone:PanoramaItem>
-            <!--<phone:PanoramaItem Header="Submit">
-                <StackPanel>
-                    <Grid>
-                        <TextBlock Text="Terms and Conditions" Foreground="#262626" VerticalAlignment="Center" />
-                        <CheckBox BorderThickness="2" BorderBrush="#262626" HorizontalAlignment="Right" />
-                    </Grid>
-                    <Grid>
-                        <Button x:Name="TrySignUp" Content="Sign up" Width="250" Height="80" Background="#1d67be" />
-                    </Grid>
-                </StackPanel>
-            </phone:PanoramaItem>-->
-
         </phone:Panorama>
         <appbar:BindableAppBar>
             <appbar:BindableAppBarButton x:Name="TrySignUp" IconUri="/Assets/AppBar/new.png" Text="Sign up" />
-            <!--<appbar:BindableAppBarMenuItem x:Name="NavigateToLogin" Text="Log in" />-->
             <appbar:BindableAppBarMenuItem x:Name="NavigateToHelp" Text="Help" />
             <appbar:BindableAppBarMenuItem x:Name="NavigateToTermsAndConditions" Text="Terms" />
 
