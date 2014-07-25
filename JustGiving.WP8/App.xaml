@@ -13,6 +13,7 @@
             <caliburnMicro:Bootstrapper x:Key="bootstrapper" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="TemplateStyles.xaml"/>
+                <ResourceDictionary Source="Resources/DataTemplateResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary> 
     </Application.Resources>

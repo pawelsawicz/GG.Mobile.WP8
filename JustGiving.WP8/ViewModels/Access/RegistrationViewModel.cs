@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using Caliburn.Micro;
 using JustGiving.WP8.Models;
 using JustGiving.WP8.Repository.Repositories;
 using System.Windows;
 using JustGiving.WP8.Repository.Models;
+using Microsoft.Phone.Controls;
 
 namespace JustGiving.WP8.ViewModels.Access
 {
@@ -27,9 +29,17 @@ namespace JustGiving.WP8.ViewModels.Access
                 NotifyOfPropertyChange(() => RegistrationPropertyViewModel);
             }
         }
-        
 
-        public List<JustGiving.WP8.Repository.Repositories.CountriesRepository.Country> Countries { get; set; }
+        private BindableCollection<CountriesRepository.Country> _countries;
+        public BindableCollection<CountriesRepository.Country> Countries
+        {
+            get { return _countries; }
+            set
+            {
+                _countries = value;
+                NotifyOfPropertyChange(() => Countries);
+            }
+        }
 
         public RegistrationViewModel(INavigationService navigationService)
         {
@@ -37,6 +47,7 @@ namespace JustGiving.WP8.ViewModels.Access
             _accountRepository = new AccountRepository();
             _countryRepository = new Repository.Repositories.CountriesRepository();
             _registrationPropertyViewModel = new RegistrationPropertyViewModel();
+            Countries = new BindableCollection<CountriesRepository.Country>();
             LoadPageContent();
         }
 
@@ -71,9 +82,19 @@ namespace JustGiving.WP8.ViewModels.Access
             MessageBox.Show("Not implemented yet");
         }
 
+        public void ChooseCountry(object sender, SelectionChangedEventArgs e)
+        {
+            var sentObject = sender as ListPicker;
+            if (sentObject != null && sentObject.SelectedItem != null)
+            {
+                var selectedCountry = (CountriesRepository.Country) sentObject.SelectedItem;
+                RegistrationPropertyViewModel.Country = selectedCountry.Name;
+            }
+        }
+
         private async void LoadPageContent()
         {
-            Countries = await _countryRepository.GetListOfCountries();
+            Countries.AddRange(await _countryRepository.GetListOfCountries());
         }
 
         private AccountRegistration mappedAccountRegistration()

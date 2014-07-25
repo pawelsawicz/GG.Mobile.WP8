@@ -83,6 +83,5 @@ namespace JustGiving.WP8.ViewModels.Access
         {
             MessageBox.Show("Not implemented yet!");
         }
-        
     }
 }

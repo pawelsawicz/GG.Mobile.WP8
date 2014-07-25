@@ -99,6 +99,5 @@ namespace JustGiving.WP8.Models
                 NotifyOfPropertyChange(() => City);
             }
         }
-
     }
 }
