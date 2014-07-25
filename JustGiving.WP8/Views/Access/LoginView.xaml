@@ -52,11 +52,4 @@
             <appbar:BindableAppBarMenuItem x:Name="NavigateToHelp" Text="Help" />
         </appbar:BindableAppBar>
     </Grid>    
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar>
-            <shell:ApplicationBarIconButton x:Name="NavigateToFacebookLogin" IconUri="/Assets/AppBar/new.png" Text="Facebook" />
-            <shell:ApplicationBarIconButton x:Name="NavigateToRegistration" IconUri="/Assets/AppBar/new.png" Text="Register" />
-            <shell:ApplicationBarIconButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
 </phone:PhoneApplicationPage>
