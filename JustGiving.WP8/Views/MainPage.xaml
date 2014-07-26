@@ -35,16 +35,18 @@
                 </ListBox>
             </phone:PivotItem>
             <phone:PivotItem Header="Charities">
-                <ListBox>
+                <ListBox ItemsSource="{Binding Charities}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <toolkit:WrapPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    <toolkit:HubTile Title="Charity" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/charity_logo_2.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
-                    <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
-                    <toolkit:HubTile Title="Charity" Message="We are doing the 5k for race for life for Cancer Research UK." Source="/Assets/Fakes/charity_logo.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
-                    <toolkit:HubTile Title="Charity" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
+                    <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <toolkit:HubTile Title="{Binding Name}" Message="{Binding Description}" Source="/Assets/Fakes/charity_logo_2.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </phone:PivotItem>
             <phone:PivotItem Header="Fundraising">
@@ -77,21 +79,21 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                             <toolkit:HubTile Title="Fundraising" Message="Stephen Sutton has received new donations today." Source="/Assets/Fakes/f_avatar.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" cal:Message.Attach="[Event Tap] = [Action TileTap]" />
-                            <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>                            
+                            <toolkit:HubTile Title="Charity" Message="1364 people have helped British Heart Foundation today." Source="/Assets/Fakes/charity_logo_3.jpg" Background="#78256d" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12"/>
                         </ListBox>
                     </Grid>
-                    <appbar:BindableAppBar>                       
+                    <appbar:BindableAppBar>
                         <appbar:BindableAppBarButton x:Name="Search" IconUri="/Assets/AppBar/new.png" Text="Search" />
                         <appbar:BindableAppBarButton x:Name="NavigateToHelp" IconUri="/Assets/AppBar/questionmark.png" Text="Help" />
                         <appbar:BindableAppBarButton x:Name="NavigateToAccount" IconUri="/Assets/AppBar/questionmark.png" Text="Account" />
                     </appbar:BindableAppBar>
-                </Grid>                
-            </phone:PivotItem> 
-        </phone:Pivot>        
-    </Grid>    
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
     <Interactivity:Interaction.Triggers>
         <Interactivity:EventTrigger EventName="OnBackKeyPress">
-            <cal:ActionMessage MethodName="BackKeyPressed" />
-        </Interactivity:EventTrigger>        
+            <cal:ActionMessage MethodName="BackKeyPressed($eventArgs)" />
+        </Interactivity:EventTrigger>
     </Interactivity:Interaction.Triggers>
 </phone:PhoneApplicationPage>

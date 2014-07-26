@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JustGiving.WP8.Repository.Repositories;
 using JustGiving.WP8.ViewModels;
 using JustGiving.WP8.ViewModels.Access;
 using JustGiving.WP8.ViewModels.Fundraising;

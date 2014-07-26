@@ -11,6 +11,7 @@ namespace JustGiving.WP8.Repository.Models
         public AccountRegistration()
         {
             Address = new Address();
+            AcceptTermsAndConditions = true;
         }
 
         public bool AcceptTermsAndConditions { get; set; }
@@ -22,5 +23,6 @@ namespace JustGiving.WP8.Repository.Models
         public string Password { get; set; }
         public string Reference { get; set; }
         public string Title { get; set; }
+       
     }
 }

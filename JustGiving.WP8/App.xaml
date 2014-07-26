@@ -8,7 +8,13 @@
 
     <!--Application Resources-->
     <Application.Resources>
-        <local:LocalizedStrings xmlns:local="clr-namespace:JustGiving.WP8" x:Key="LocalizedStrings"/>
-        <caliburnMicro:Bootstrapper x:Key="bootstrapper" />
+        <ResourceDictionary x:Key="MyDictionary">
+            <local:LocalizedStrings xmlns:local="clr-namespace:JustGiving.WP8" x:Key="LocalizedStrings"/>
+            <caliburnMicro:Bootstrapper x:Key="bootstrapper" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="TemplateStyles.xaml"/>
+                <ResourceDictionary Source="Resources/DataTemplateResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary> 
     </Application.Resources>
 </Application>
